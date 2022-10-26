@@ -38,9 +38,9 @@ class InicioFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
         var viewroot = inflater.inflate(R.layout.fragment_inicio, container, false)
-        viewroot.findViewById<Button>(R.id.btnMejorDeTres).setOnClickListener{ listener?.onClickInicioTres() }
-        viewroot.findViewById<Button>(R.id.btnMejorDeCinco).setOnClickListener { listener?.onClickInicioCinco() }
-        viewroot.findViewById<Button>(R.id.btnMejorDeSiete).setOnClickListener { listener?.onClickInicioSiete() }
+        viewroot.findViewById<Button>(R.id.btnMejorDeTres).setOnClickListener{ listener?.onClickInicio(3) }
+        viewroot.findViewById<Button>(R.id.btnMejorDeCinco).setOnClickListener { listener?.onClickInicio(5) }
+        viewroot.findViewById<Button>(R.id.btnMejorDeSiete).setOnClickListener { listener?.onClickInicio(7) }
 
 
         return viewroot

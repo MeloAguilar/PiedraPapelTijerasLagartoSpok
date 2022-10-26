@@ -38,28 +38,23 @@ class MainActivity : AppCompatActivity(), Comunicador {
         val transaccion = supportFragmentManager.beginTransaction()
         transaccion.replace(R.id.containerPrincipal, inicio)
         marcadorCpu = 0
-         marcadorUser = 0
-         imgUserRes = 0
-         imgCpuRes = 0
+        marcadorUser = 0
+        imgUserRes = 0
+        imgCpuRes = 0
         transaccion.commit()
     }
 
 
-    override fun onClickInicioCinco() {
-       maxPuntuacion = 5
-        onClickInicio()
-    }
 
-    override fun onClickInicioSiete() {
-        maxPuntuacion = 7
-        onClickInicio()
-    }
 
-    override fun onClickInicioTres(){
-        maxPuntuacion = 3
-        onClickInicio()
-    }
-    override fun onClickInicio() {
+
+    /**
+     * Método que se encarga de reemplazar el Fragment que se encuentra
+     * dentro de el FragmentContainerView containerPrincipal. Donde se encontraba el Fragment InicioFragment
+     * ahora se encontrará el Fragment JuegoFragment
+     */
+    override fun onClickInicio(rondas:Int) {
+        maxPuntuacion = rondas
         val juego = GameFragment()
         //Genero la transaccion para cambiar el Fragment que se mostrará
         val transaction = supportFragmentManager.beginTransaction()
@@ -68,17 +63,15 @@ class MainActivity : AppCompatActivity(), Comunicador {
         transaction.commit()
     }
 
+
+    /**
+     * Método que aumenta marcadorUser o marcadorCPU segun el resultado de un número generado aleatoriamente
+     * de entre las posibles elecciones del enum Armas.
+     *
+     */
     private fun marcador() {
-        var txtMarcadorCpu: TextView = findViewById(R.id.txtMarcCPU)
-        var txtMarcadorUser: TextView = findViewById(R.id.txtMarcUser)
-        var random = Random.nextInt(Armas.values().size)
-        var arma: Armas = Armas.values().get(random)
-        var imgCpu: ImageView = findViewById(R.id.imgCPU)
-        var imgUser : ImageView = findViewById(R.id.imgUser)
-        var winner = findViewById<ImageView>(R.id.imgWinner)
-        var winner2 = findViewById<ImageView>(R.id.imgWinner2)
-        var txtWinner = findViewById<TextView>(R.id.txtWinner)
         when (imgUserRes) {
+            //Si el usuario elige Piedra
             Armas.PIEDRA.resourceID -> {
                 when (imgCpuRes) {
                     Armas.PAPEL.resourceID -> {
@@ -95,6 +88,7 @@ class MainActivity : AppCompatActivity(), Comunicador {
                     }
                 }
             }
+            //Si el usuario elige Papel
             Armas.PAPEL.resourceID -> {
                 when (imgCpuRes) {
                     Armas.PIEDRA.resourceID -> {
@@ -111,6 +105,7 @@ class MainActivity : AppCompatActivity(), Comunicador {
                     }
                 }
             }
+            //Si el usuario elige Tijeras
             Armas.TIJERAS.resourceID -> {
                 when (imgCpuRes) {
                     Armas.PAPEL.resourceID -> {
@@ -127,6 +122,7 @@ class MainActivity : AppCompatActivity(), Comunicador {
                     }
                 }
             }
+            //Si el usuario elige Lagarto
             Armas.LAGARTO.resourceID -> {
                 when (imgCpuRes) {
                     Armas.PAPEL.resourceID -> {
@@ -143,6 +139,7 @@ class MainActivity : AppCompatActivity(), Comunicador {
                     }
                 }
             }
+            //Si el usuario elige Spok
             Armas.SPOK.resourceID -> {
                 when (imgCpuRes) {
                     Armas.PAPEL.resourceID -> {
@@ -160,28 +157,47 @@ class MainActivity : AppCompatActivity(), Comunicador {
                 }
             }
         }
-        //Establezco cuando ganará uno de los dos
-        if(marcadorCpu == maxPuntuacion || marcadorUser == maxPuntuacion){
-            if(marcadorCpu > marcadorUser) {
-                txtWinner.text = "CPU"
-                winner.visibility = VISIBLE
-            }else{
-                txtWinner.text = "USUARIO"
-
-                winner2.visibility = VISIBLE
-            }
-
-            //Quito de la pantalla tódo lo que no se debe ver en ese momento
-            //Y pongo la imagen de la copa ademas del nombre del ganador
-            findViewById<Button>(R.id.btnLagarto).isVisible= false
-            findViewById<Button>(R.id.btnSpok).isVisible = false
-            findViewById<Button>(R.id.btnTijeras).isVisible = false
-            findViewById<Button>(R.id.btnPapel).isVisible = false
-            findViewById<Button>(R.id.btnPiedra).isVisible = false
-            findViewById<Button>(R.id.txtVs).isVisible = false
+        //Si ha finalizado el juego
+        if (marcadorCpu == maxPuntuacion || marcadorUser == maxPuntuacion) {
+            mostrarGanador()
         }
     }
 
+
+    /**
+     * Método que se encarga de quitar la visibilidad a lo que se está mostrando en pantalla
+     * y muestra una imagen que indica el ganador sobre la imagen de la ultima opcion que eligió
+     */
+    fun mostrarGanador() {
+        var winner = findViewById<ImageView>(R.id.imgWinner)
+        var winner2 = findViewById<ImageView>(R.id.imgWinner2)
+        var txtWinner = findViewById<TextView>(R.id.txtWinner)
+        //Establezco cuando ganará uno de los dos
+
+        if (marcadorCpu > marcadorUser) {
+            txtWinner.text = "CPU"
+            winner.visibility = VISIBLE
+        } else {
+            txtWinner.text = "USUARIO"
+
+            winner2.visibility = VISIBLE
+        }
+
+        //Quito de la pantalla tódo lo que no se debe ver en ese momento
+        //Y pongo la imagen de la copa ademas del nombre del ganador
+        findViewById<Button>(R.id.btnLagarto).isVisible = false
+        findViewById<Button>(R.id.btnSpok).isVisible = false
+        findViewById<Button>(R.id.btnTijeras).isVisible = false
+        findViewById<Button>(R.id.btnPapel).isVisible = false
+        findViewById<Button>(R.id.btnPiedra).isVisible = false
+        findViewById<Button>(R.id.txtVs).isVisible = false
+    }
+
+    /**
+     * Método que se encarga de mostrar una imagen para el ImageView imgCPU
+     * gracias a un número aleatorio entre 0 y la longitud de la clase enum Armas
+     * casteada a Array. Además llama al método que actualiza el marcador del juego
+     */
     fun cambioImagenCpu() {
         //Recojo las variables de los fragmentos que voy a utilizar
         var txtMarcadorCpu: TextView = findViewById(R.id.txtMarcCPU)
@@ -189,59 +205,45 @@ class MainActivity : AppCompatActivity(), Comunicador {
         var random = Random.nextInt(Armas.values().size)
         var arma: Armas = Armas.values().get(random)
         var imgCpu: ImageView = findViewById(R.id.imgCPU)
-        var imgUser : ImageView = findViewById(R.id.imgUser)
-        var winner = findViewById<ImageView>(R.id.imgWinner)
-        var txtWinner = findViewById<TextView>(R.id.txtWinner)
 
-            //Cambiamos la imagen del cpu que tenemos guardada
-            imgCpuRes = arma.resourceID
-            //Establecemos la imamgen en el ImageView del CPU
-            imgCpu.setImageResource(imgCpuRes)
-            //Actualizamos el marcador
-            marcador()
-            //Establecemos el marcador para el cpu y el usuario
-            txtMarcadorCpu.text = marcadorCpu.toString()
-            txtMarcadorUser.text = marcadorUser.toString()
-
+        //Cambiamos la imagen del cpu que tenemos guardada
+        imgCpuRes = arma.resourceID
+        //Establecemos la imamgen en el ImageView del CPU
+        imgCpu.setImageResource(imgCpuRes)
+        //Actualizamos el marcador
+        marcador()
+        //Establecemos el marcador para el cpu y el usuario
+        txtMarcadorCpu.text = marcadorCpu.toString()
+        txtMarcadorUser.text = marcadorUser.toString()
 
 
     }
 
-    override fun onClickPiedra() {
+    /**
+     * Método que se encarga de modificar el src del ImageView correspondiente a la eleccion del usuario
+     *
+     * <values>ResID:Int</values>
+     * <pre>ResID debe ser uno de los valores del atributo ResourceID de la clase enum Armas</pre>
+     */
+    private fun cambioImagenUsuario(ResID: Int) {
         var imgUser = findViewById<ImageView>(R.id.imgUser)
-        imgUser.setImageResource(Armas.PIEDRA.resourceID)
-        imgUserRes = Armas.PIEDRA.resourceID
+        imgUser.setImageResource(ResID)
+        imgUserRes = ResID
+    }
+
+    /**
+     * Método que se encarga de llamar a los métodos que cambian la imagen
+     * del usuario por el de el enum Armas.PIEDRA y el CPU por uno aleatorio entre los posibles de la clase enum Armas
+     * <values>ResID:Int</values>
+     * <pre>ResID debe ser uno de los valores del atributo ResourceID de la clase enum Armas</pre>
+     */
+    override fun onClickArma(ResID: Int) {
+        cambioImagenUsuario(ResID)
         cambioImagenCpu()
 
     }
 
-    override fun onClickPapel() {
-        var imgUser = findViewById<ImageView>(R.id.imgUser)
-        imgUser.setImageResource(Armas.PAPEL.resourceID)
-        imgUserRes = Armas.PAPEL.resourceID
-        cambioImagenCpu()
-    }
 
-    override fun onClickTijeras() {
-        var imgUser = findViewById<ImageView>(R.id.imgUser)
-        imgUser.setImageResource(Armas.TIJERAS.resourceID)
-        imgUserRes = Armas.TIJERAS.resourceID
-        cambioImagenCpu()
-    }
-
-    override fun onClickLagarto() {
-        var imgUser = findViewById<ImageView>(R.id.imgUser)
-        imgUser.setImageResource(Armas.LAGARTO.resourceID)
-        imgUserRes = Armas.LAGARTO.resourceID
-        cambioImagenCpu()
-    }
-
-    override fun onClickSpok() {
-        var imgUser = findViewById<ImageView>(R.id.imgUser)
-        imgUser.setImageResource(Armas.SPOK.resourceID)
-        imgUserRes = Armas.SPOK.resourceID
-        cambioImagenCpu()
-    }
 
 
 }

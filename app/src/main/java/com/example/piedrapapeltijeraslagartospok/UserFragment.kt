@@ -32,11 +32,11 @@ private var listener:Comunicador? =null
     ): View? {
 
         var viewRoot = inflater.inflate(R.layout.fragment_user, container, false)
-        viewRoot.findViewById<ImageButton>(R.id.btnPiedra).setOnClickListener {listener?.onClickPiedra()}
-        viewRoot.findViewById<ImageButton>(R.id.btnPapel).setOnClickListener {listener?.onClickPapel()}
-        viewRoot.findViewById<ImageButton>(R.id.btnLagarto).setOnClickListener {listener?.onClickLagarto()}
-        viewRoot.findViewById<ImageButton>(R.id.btnTijeras).setOnClickListener {listener?.onClickTijeras()}
-        viewRoot.findViewById<ImageButton>(R.id.btnSpok).setOnClickListener {listener?.onClickSpok()}
+        viewRoot.findViewById<ImageButton>(R.id.btnPiedra).setOnClickListener {listener?.onClickArma(Armas.PIEDRA.resourceID)}
+        viewRoot.findViewById<ImageButton>(R.id.btnPapel).setOnClickListener {listener?.onClickArma(Armas.PAPEL.resourceID)}
+        viewRoot.findViewById<ImageButton>(R.id.btnLagarto).setOnClickListener {listener?.onClickArma(Armas.LAGARTO.resourceID)}
+        viewRoot.findViewById<ImageButton>(R.id.btnTijeras).setOnClickListener {listener?.onClickArma(Armas.TIJERAS.resourceID)}
+        viewRoot.findViewById<ImageButton>(R.id.btnSpok).setOnClickListener {listener?.onClickArma(Armas.SPOK.resourceID)}
 
         return viewRoot
     }

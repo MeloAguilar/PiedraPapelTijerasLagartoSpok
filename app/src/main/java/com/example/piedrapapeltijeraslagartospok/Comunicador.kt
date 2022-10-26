@@ -2,25 +2,13 @@ package com.example.piedrapapeltijeraslagartospok
 
 interface Comunicador {
 
-    fun onClickPiedra()
+    fun onClickArma(ResourceID:Int)
 
-    fun onClickPapel()
-
-    fun onClickTijeras()
-
-    fun onClickLagarto()
-
-    fun onClickSpok()
-
-    fun onClickInicio()
+    fun onClickInicio(rondas:Int)
 
     fun onCLickReiniciar()
 
-    fun onClickInicioCinco(){}
 
-    fun onClickInicioSiete(){}
-
-    fun onClickInicioTres(){}
 
 
 }
