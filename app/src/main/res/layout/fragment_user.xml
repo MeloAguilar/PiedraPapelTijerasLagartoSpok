@@ -11,36 +11,36 @@
 
     <ImageButton
         android:id="@+id/btnPiedra"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
         android:background="@color/purple_200"
         android:src="@mipmap/icono_piedra_foreground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.253"
+        app:layout_constraintHorizontal_bias="0.247"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.912" />
+        app:layout_constraintVertical_bias="0.911" />
 
     <ImageButton
 
         android:id="@+id/btnLagarto"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
         android:background="@color/purple_200"
         android:src="@mipmap/icono_lagarto"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.737"
+        app:layout_constraintHorizontal_bias="0.752"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.912" />
+        app:layout_constraintVertical_bias="0.911" />
 
     <ImageButton
 
         android:id="@+id/btnTijeras"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
         android:background="@color/purple_200"
         android:src="@mipmap/icono_tijeras_foreground"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -52,13 +52,13 @@
 
     <ImageButton
         android:id="@+id/btnPapel"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
         android:background="@color/purple_200"
         android:src="@mipmap/icono_papel_foreground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.012"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.912" />
@@ -66,13 +66,13 @@
     <ImageButton
 
         android:id="@+id/btnSpok"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
         android:background="@color/purple_200"
         android:src="@mipmap/icono_spok_foreground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.978"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.912" />

@@ -8,6 +8,20 @@
     tools:context=".ResultadoFragment">
 
 
+    <ImageView
+        android:id="@+id/imgWinner2"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:background="@color/purple_200"
+        android:src="@drawable/starmk"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.205" />
+
     <TextView
         android:id="@+id/txtWinner"
         android:layout_width="408dp"
@@ -31,10 +45,10 @@
         android:backgroundTint="@color/purple_200"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.057"
         app:layout_constraintStart_toStartOf="@+id/txtWinner"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintVertical_bias="0.652" />
 
     <TextView
         android:id="@+id/txtVs"
@@ -42,13 +56,13 @@
         android:layout_height="80dp"
         android:text="V.S."
         android:textAlignment="center"
-        android:textSize="50dp"
+        android:textSize="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imgUser"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.523"
         app:layout_constraintStart_toStartOf="@+id/imgCPU"
         app:layout_constraintTop_toTopOf="@+id/imgWinner"
-        app:layout_constraintVertical_bias="0.396" />
+        app:layout_constraintVertical_bias="0.562" />
 
     <ImageView
         android:id="@+id/imgUser"
@@ -58,10 +72,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
 
         app:layout_constraintEnd_toEndOf="@+id/txtWinner"
-        app:layout_constraintHorizontal_bias="0.935"
+        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toEndOf="@+id/imgCPU"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        app:layout_constraintVertical_bias="0.652" />
 
     <ImageView
         android:id="@+id/imgWinner"
@@ -72,7 +86,7 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.205" />
@@ -99,10 +113,10 @@
         android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imgWinner"
-        app:layout_constraintHorizontal_bias="0.287"
+        app:layout_constraintHorizontal_bias="0.479"
         app:layout_constraintStart_toStartOf="@+id/imgCPU"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.749" />
+        app:layout_constraintVertical_bias="0.853" />
 
     <TextView
         android:id="@+id/txtMarcUser"
@@ -112,10 +126,10 @@
         android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imgUser"
-        app:layout_constraintHorizontal_bias="0.725"
+        app:layout_constraintHorizontal_bias="0.851"
         app:layout_constraintStart_toStartOf="@+id/imgWinner"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.749" />
+        app:layout_constraintVertical_bias="0.853" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
